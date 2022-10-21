@@ -45,9 +45,27 @@ printRow();
 
 function printCard(country){
     const templateHtml = `
-        <div class="img-container">
+        <div class="img-container d-none">
             <img src="${country.url}" alt="${country.title}">
         </div>        
     `
     return templateHtml;
 }
+
+function activateSlider(){
+    let activeSlide = 0;
+    const countryImage = document.querySelectorAll('.img-container');
+    console.log(countryImage);
+    countryImage[activeSlide].classList.toggle('d-none');
+
+    const nextBtn = document.getElementById('next-btn');
+
+    nextBtn.addEventListener('click', function showImage(){
+        countryImage[activeSlide].classList.toggle('d-none');
+        activeSlide++;
+        console.log(activeSlide);
+        countryImage[activeSlide].classList.toggle('d-none')
+    });
+}
+activateSlider();
+
