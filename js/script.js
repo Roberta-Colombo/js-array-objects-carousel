@@ -28,6 +28,7 @@ const images = [
     },
 ];
 
+
 const wrapperDiv = document.querySelector('.wrapper');
 
 function printRow(){
@@ -52,12 +53,15 @@ function printCard(country){
     return templateHtml;
 }
 
-function activateSlider(){
+function activateSlider(country){
     let activeSlide = 0;
     const countryImage = document.querySelectorAll('.img-container');
     console.log(countryImage);
     countryImage[activeSlide].classList.toggle('d-none');
-
+    countryImage[activeSlide].innerHTML = `
+    ${country.title} + ${country.description}
+    `;
+    
     const nextBtn = document.getElementById('next-btn');
 
     nextBtn.addEventListener('click', function showImage(){
