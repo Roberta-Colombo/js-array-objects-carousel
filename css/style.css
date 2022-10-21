@@ -5,6 +5,7 @@
 .img-container {
     width: 60%;
     margin: 30px auto;
+    position: relative;
 }
 
 img{
@@ -15,6 +16,20 @@ img{
     display: none;
 }
 
+.img-title, .img-cap {
+    position: absolute;
+    color: white;
+    right: 20px;
+}
+
+.img-title {
+    top: 20px; 
+}
+
 .show {
     display: block;
+}
+
+.img-cap {
+    top: 40px;
 }

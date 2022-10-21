@@ -50,31 +50,38 @@ printRow();
 function printCard(country){
     const templateHtml = `
         <div class="img-container d-none">
+            <div class="img-title">${country.title}</div>
+            <div class="img-cap">${country.description}</div> 
             <img src="${country.url}" alt="${country.title}">
-        </div>        
+        </div>
     `
     return templateHtml;
 }
 
 //funzione per aggiungere/togliere classe d-none sulle slide attive alternativamente:
+
 function activateSlider(country){
     let activeSlide = 0;
-    const countryImage = document.querySelectorAll('.img-container');
-    console.log(countryImage);
-    countryImage[activeSlide].classList.toggle('d-none');
-//stampa proprietà title e description sull'img in quel momento attiva:
-    countryImage[activeSlide].innerHTML = `
-    ${country.title} + ${country.description}
-    `;
-    
-    const nextBtn = document.getElementById('next-btn');
+    const countrySlide = document.querySelectorAll('.img-container');
 
-    nextBtn.addEventListener('click', function showImage(){
-        countryImage[activeSlide].classList.toggle('d-none');
+    countrySlide[activeSlide].classList.toggle('d-none');
+
+// slide successive tramite button next:
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.addEventListener('click', function nextImage(){
+        countrySlide[activeSlide].classList.toggle('d-none');
         activeSlide++;
         console.log(activeSlide);
-        countryImage[activeSlide].classList.toggle('d-none')
+        countrySlide[activeSlide].classList.toggle('d-none')
     });
+
+//slice precedenti tramite button previous:
+    const previousBtn = document.getElementById('previous-btn');
+    previousBtn.addEventListener('click', function prevoiusImage(){
+        countrySlide[activeSlide].classList.toggle('d-none');
+        activeSlide--;
+        console.log(activeSlide);
+        countrySlide[activeSlide].classList.toggle('d-none')
+    }); 
 }
 activateSlider();
-
