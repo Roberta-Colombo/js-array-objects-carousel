@@ -31,9 +31,11 @@ const images = [
 
 const wrapperDiv = document.querySelector('.wrapper');
 
+// stampa row contenente un div per ogni elemento dell'array images:
 function printRow(){
     const row = document.createElement('div');
     row.className= 'row';
+// per ogni elemento dell'array (country) stampa il suo div con la sua img tramite funzione printCard():
     images.forEach((country) => {
         console.log(country);
         const template = printCard(country);
@@ -44,6 +46,7 @@ function printRow(){
 }
 printRow();
 
+// stampa singolo div "image-container" contenente l'immagine e con classe d-none:
 function printCard(country){
     const templateHtml = `
         <div class="img-container d-none">
@@ -53,11 +56,13 @@ function printCard(country){
     return templateHtml;
 }
 
+//funzione per aggiungere/togliere classe d-none sulle slide attive alternativamente:
 function activateSlider(country){
     let activeSlide = 0;
     const countryImage = document.querySelectorAll('.img-container');
     console.log(countryImage);
     countryImage[activeSlide].classList.toggle('d-none');
+//stampa proprietà title e description sull'img in quel momento attiva:
     countryImage[activeSlide].innerHTML = `
     ${country.title} + ${country.description}
     `;
