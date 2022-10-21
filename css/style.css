@@ -1,0 +1,12 @@
+/* .wrapper {
+    display: flex;
+}  */
+
+.img-container {
+    width: 60%;
+    margin: 30px auto;
+}
+
+img{
+    width: 100%;
+}
