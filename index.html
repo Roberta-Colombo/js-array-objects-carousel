@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Array Objects Carousel</title>
@@ -11,26 +12,57 @@
 <body>
 
     <div class="wrapper">
+        <div class="slider">
     
-        <!-- <div class="img-container">
-            <img src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
-        </div>    
+            <!-- <div class="img-container">
+                <img src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
+            </div>    
+        
+            <div class="img-container">
+                <img src="https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg" alt="">
+            </div>
     
-        <div class="img-container">
-            <img src="https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg" alt="">
+            <div class="img-container">
+                <img src="https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c" alt="">
+            </div> -->
         </div>
 
-        <div class="img-container">
-            <img src="https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c" alt="">
-        </div> -->
+        <div class="thumbnails-container d-flex justify-content-start">
+
+            <div class="thumb">
+                <div class="overlay"></div>
+                <img id="pic-1" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="Svezia">
+            </div>
+
+            <div id="pic-2" class="thumb">
+                <div class="overlay"></div>
+                <img src="https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg" alt="Per&ugrave;">
+            </div>
+
+            <div class="thumb">
+                <div class="overlay"></div>
+                <img id="pic-3" src="https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c" alt="Chile">
+            </div>
+
+            <div class="thumb">
+                <div class="overlay"></div>
+                <img id="pic-4" src="https://static1.evcdn.net/images/reduction/1583177_w-1920_h-1080_q-70_m-crop.jpg" alt="Argentina">
+            </div>
+
+            <div class="thumb">
+                <div class="overlay"></div>
+                <img id="pic-5" src="https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop" alt="Colombia">
+            </div>
+
+            
+            <button id="previous-btn"><i class="fa-solid fa-angle-left"></i></button>
+
+            <button id="next-btn"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
     </div>
-
-    <button id="previous-btn">Previous</button>
-    <button id="next-btn">Next</button>
+    
 
 
-
-  
 
     <script src="./js/script.js"></script>
 </body>

@@ -29,20 +29,18 @@ const images = [
 ];
 
 
-const wrapperDiv = document.querySelector('.wrapper');
+const sliderDiv = document.querySelector('.slider');
 
 // stampa row contenente un div per ogni elemento dell'array images:
 function printRow(){
     const row = document.createElement('div');
-    row.className= 'row';
+    row.className= 'my-row';
 // per ogni elemento dell'array (country) stampa il suo div con la sua img tramite funzione printCard():
     images.forEach((country) => {
-        console.log(country);
         const template = printCard(country);
         row.innerHTML += template;
-        console.log(row);
     });
-    wrapperDiv.appendChild(row);
+    sliderDiv.appendChild(row);
 }
 printRow();
 
@@ -50,9 +48,11 @@ printRow();
 function printCard(country){
     const templateHtml = `
         <div class="img-container d-none">
+        <div class="bg-overlay">
             <div class="img-title">${country.title}</div>
             <div class="img-cap">${country.description}</div> 
-            <img src="${country.url}" alt="${country.title}">
+        </div>    
+            <img class="img-slide" src="${country.url}" alt="${country.title}">
         </div>
     `
     return templateHtml;
@@ -66,22 +66,97 @@ function activateSlider(country){
 
     countrySlide[activeSlide].classList.toggle('d-none');
 
-// slide successive tramite button next:
+//slide successive tramite button next:
     const nextBtn = document.getElementById('next-btn');
     nextBtn.addEventListener('click', function nextImage(){
         countrySlide[activeSlide].classList.toggle('d-none');
+        
         activeSlide++;
         console.log(activeSlide);
         countrySlide[activeSlide].classList.toggle('d-none')
-    });
+        if(activeSlide == images.length - 1){
+            activeSlide == 0;
+        }
+    })
 
-//slice precedenti tramite button previous:
+//slide precedenti tramite button previous:
     const previousBtn = document.getElementById('previous-btn');
-    previousBtn.addEventListener('click', function prevoiusImage(){
+    previousBtn.addEventListener('click', function previousImage(){
         countrySlide[activeSlide].classList.toggle('d-none');
         activeSlide--;
-        console.log(activeSlide);
         countrySlide[activeSlide].classList.toggle('d-none')
     }); 
+
+
+    //    if(activeSlide[i] == images.length - 1){
+    //         activeSlide[i] == 0;
+    //     };
+
+        // if(activeSlide[i] == images.length){
+        //     activeSlide++;
+        // }
+
+        
+        // for(let i = 0; i <= countrySlide.length; i++){
+        //     if(activeSlide[i] == countrySlide.length){ 
+        //         activeSlide = 0
+        //         // activeSlide.classList.toggle('d-none');            
+        //         console.log(activeSlide);             
+        //     }           
+        // }
+
+    //     const resetActiveElements = () => {
+    //        countrySlide.forEach((activeSlide, i) => {
+    //           if (activeSlide[i] >= countrySlide.length) {
+    //             activeSlide.classList.toggle('d-none');
+    //           } else {
+    //             activeSlide.classList.toggle('d-none');
+    //           }
+    //       });
+    //       resetActiveElements();
+    //   }
+
+        // images.forEach((country, i) => {
+        //     if(activeSlide[i] == (images.length - 1)){
+        //         activeSlide++;
+        //     }
+        //     console.log(images.length);
+        //     console.log([i]);
+        // });
+    // });
+
+//slide precedenti tramite button previous:
+
+    let overlayDiv = document.querySelectorAll('.overlay');
+    const thumbDiv = document.querySelectorAll('.thumb');
+     
+    for(let i = 0; i < thumbDiv.length; i++){
+        thumbDiv[i].addEventListener('click', function preview(){
+            let activeThumb = [i];
+            overlayDiv[activeThumb].classList.toggle('d-none');
+            activeThumb++;
+            countrySlide[activeSlide].classList.add('d-none');
+            countrySlide[i].classList.remove('d-none');
+        })
+    }
+
+    // previousBtn.addEventListener('click', function previousThumb(){
+    //     let activeThumb = 0;
+    //     if(activeSlide[1]){
+    //         activeThumb++;
+    //     }
+    // })    
+
+    // const nextBtn = document.getElementById('next-btn');
+    // nextBtn.addEventListener('click', function nextImage(){
+    // countrySlide[activeSlide].classList.toggle('d-none');
+        
+    // activeSlide++;
+   
+    // countrySlide[activeSlide].classList.toggle('d-none')
+    // })
+
+    return activeSlide;
 }
 activateSlider();
+
