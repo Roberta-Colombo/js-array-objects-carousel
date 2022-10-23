@@ -77,6 +77,7 @@ function activateSlider(country){
         if(activeSlide == images.length - 1){
             activeSlide == 0;
         }
+
     })
 
 //slide precedenti tramite button previous:
@@ -125,8 +126,9 @@ function activateSlider(country){
         // });
     // });
 
-//slide precedenti tramite button previous:
 
+    
+//thumbnails che si attivano al click mostrando img corrispondente:    
     let overlayDiv = document.querySelectorAll('.overlay');
     const thumbDiv = document.querySelectorAll('.thumb');
      
